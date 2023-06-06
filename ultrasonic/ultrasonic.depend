@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1685727646 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\ultrasonic\fuse.c
+	<avr/io.h>
+
+1685776275 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\ultrasonic\main.c
+	<avr/io.h>
+	<avr/delay.h>
+

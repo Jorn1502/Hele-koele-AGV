@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1685779659 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\servo\fuse.c
+	<avr/io.h>
+
+1685780740 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\servo\main.c
+	<util/delay.h>
+	"servo2.h"
+
+1601558743 c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\servo\servo.h
+
+1685780720 c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\servo\servo2.h
+
+1685780855 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\servo\servo2.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"servo.h"
+

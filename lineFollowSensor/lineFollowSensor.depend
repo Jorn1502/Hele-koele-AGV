@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1685805716 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\linefollowsensor\fuse.c
+	<avr/io.h>
+
+1685877769 source:c:\users\arikd\onedrive - de haagse hogeschool\documenten\_hhs\programeren\_agv\linefollowsensor\main.c
+	<avr/io.h>
+	<util/delay.h>
+
