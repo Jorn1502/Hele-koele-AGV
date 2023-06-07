@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1685648196 source:c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-powerhouse\fuse.c
+	<avr/io.h>
+
+1686065713 source:c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-powerhouse\main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	"servo.h"
+
+1686059304 c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-powerhouse\servo.h
+
+1686059304 source:c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-powerhouse\servo.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"servo.h"
+
