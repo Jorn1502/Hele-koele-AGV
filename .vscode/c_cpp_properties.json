@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\Program Files (x86)\\avr-gcc-12.0.1\\bin\\avr-gcc.exe",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

@@ -1,11 +1,10 @@
 MCU=atmega2560
 F_CPU=16000000
-CC=avr-gcc
+CC=avr-gcc.exe
 OBJCOPY=avr-objcopy
 CFLAGS=-std=c99 -Wall -g -Os -mmcu=${MCU} -DF_CPU=${F_CPU} -I.
 TARGET=main
-SRCS=main.c weight.c distance.c lights.c servo.c motor.c
-
+SRCS=Servo/main.c Servo/fuse.c Servo/servo.c Servo/servo.h
 all:
 	${CC} ${CFLAGS} -o ${TARGET}.bin ${SRCS}
 	${OBJCOPY} -j .text -j .data -O ihex ${TARGET}.bin ${TARGET}.hex
