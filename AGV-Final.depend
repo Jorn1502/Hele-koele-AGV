@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1686141977 source:c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-final\fuse.c
+	<avr/io.h>
+
+1686145058 source:c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-final\main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+
+1686144057 c:\users\optim\onedrive\00 hhs\lj1\project mechatronica\agv\agv-final\movement.c
+	<avr/io.h>
+	<util/delay.h>
+
