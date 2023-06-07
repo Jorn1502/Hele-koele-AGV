@@ -15,7 +15,6 @@ int main(void)
 	init ();
 	while (1)
 	{
-
 			servo1_set_percentage(100);
 			_delay_ms (1000);
 			servo1_set_percentage(-100);
@@ -23,3 +22,6 @@ int main(void)
 	}
 	return 0;
 }
+
+//halll0
+// ff testen hoor
