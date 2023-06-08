@@ -19,8 +19,7 @@ int main(void)
 
     while(1)
     {
- //       line();
-        rijden();
+        line();
     }
 
     return 0;
@@ -54,47 +53,57 @@ int setupSteppers(void)
 int line(void)
 {
 
-    if(PINC & (1 << 0))
-    {
-        speed = speed + 100;
-    }
-    if(PINC & (1 << 2))
-    {
-        speed = speed + 50;
-    }
+    int sensoren = 0;
+
+
     if(PINC & (1 << 4))
     {
-        speed = speed + 10;
+        sensoren += 0b0001;
     }
     if(PINC & (1 << 6))
     {
-        speed = speed + 2;
-    }
-    if(PINA & (1 << 1))
-    {
-        speed = speed - 100;
-    }
-    if(PINA & (1 << 3))
-    {
-        speed = speed - 50;
-    }
-    if(PINA & (1 << 5))
-    {
-        speed = speed - 10;
+        sensoren += 0b0010;
     }
     if(PINA & (1 << 7))
     {
-        speed = speed - 2;
+        sensoren += 0b0100;
     }
-    if((PINC & (1 << 6)) & (PINA & (1 << 7)))
+    if(PINA & (1 << 5))
     {
-        speed = basissnelheid;
+        sensoren += 0b1000;
+    }
+    switch(sensoren)
+    {
+    case(0b0001):
+        ICR1 = 20000;
+        ICR5 = 60000;
+        break;
+    case(0b0011):
+        ICR1 = 20000;
+        ICR5 = 40000;
+        break;
+    case(0b0111):
+        ICR1 = 20000;
+        ICR5 = 30000;
+        break;
+    case(0b0110):
+        ICR1 = 18000;
+        ICR5 = 18000;
+        break;
+    case(0b1110):
+        ICR1 = 30000;
+        ICR5 = 20000;
+        break;
+    case(0b1100):
+        ICR1 = 40000;
+        ICR5 = 20000;
+        break;
+    case(0b1000):
+        ICR1 = 60000;
+        ICR5 = 20000;
+        break;
+
+    default:
+        ICR1 = ICR5 = 63530;
     }
 }
-
-void rijden(void)
-{
-    ICR1 = speed;                               // stel snelheid motor in
-    ICR5 = (basissnelheid*2) - speed;           // doet tegenovergestelde van ICR1
-}
-

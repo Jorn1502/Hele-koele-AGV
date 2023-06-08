@@ -11,3 +11,11 @@
 	<avr/io.h>
 	<util/delay.h>
 
+1686223511 source:d:\00 school hhs\agv\hele-koele-agv\fuse.c
+	<avr/io.h>
+
+1686228215 source:d:\00 school hhs\agv\hele-koele-agv\main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+
