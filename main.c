@@ -9,26 +9,33 @@
 #define stepL 5                              // OC1A PB5 pin 11
 #define stop 0                               // PE0 pin 0           eneble pin steppers high
 
-int basissnelheid = 20000;                    // basissnelheid
+
+#define trig PB2
+#define echo PB0
+
+int basissnelheid = 20000;                   // basissnelheid
 int speed;                                   // past het prog aan
+
+int timeout = 1800;
 
 int main(void)
 {
+    _delay_ms(2000);
     setupSteppers();                         // steppers initialiseren
+    setupUltraPins();
     speed = basissnelheid;
 
     while(1)
     {
         line();
+        ultrasoon();
     }
-
-    return 0;
 }
 
 int setupSteppers(void)
 {
-    DDRL |= (1 << stepR);                  // PWM steppers aan
-    DDRB |= (1 << stepL);
+    DDRL |= (1 << stepR);                   // PWM aan (timer 1)
+    DDRB |= (1 << stepL);                   // PWM aan (timer 5)
     DDRE |= (1 << stop);
 
 
@@ -40,14 +47,26 @@ int setupSteppers(void)
 
     OCR1A = 2000;
     OCR5A = 2000;
-    ICR1 = 20000;			                       // 32000 is 5ms 16000 is 1ms
+    ICR1 = 20000;			            // 32000 is 5ms 16000 is 1ms
     ICR5 = 20000;
 
-    DDRG |= (1 << 2);                    // GND voor linesensor
-    PORTG &= ~(1 << 2);                  // maakt port GND
+    DDRB |= (1 << 3);                   // eneble pin rechts
+    DDRL |= (1 << 1);                   // eneble pin links
+    PORTB &= ~(1 << 3);                 // zet driver rechts aan
+    PORTL &= ~(1 << 1);                 // zet driver links aan
+
+    DDRG |= (1 << 2);                   // PS pin voor linesensor
+    PORTG &= ~(1 << 2);                 // GND supply
     DDRC &= ~(1 << 0) | ~(1 << 2) | ~(1 << 4) | ~(1 << 6);  // ingang sensor
     DDRA &= ~(1 << 7) | ~(1 << 5) | ~(1 << 3) | ~(1 << 1);  // same
+}
+int setupUltraPins(void)
+{
+    DDRB |= (1 << trig);                // output voor trigger
+    DDRB &= ~(1 << echo);               // input voor feedback
 
+    DDRL |= (1 << 0);                   // PS pin ultrasoon
+    PORTL |= (1 << 0);                  // 5V supply
 }
 
 int line(void)
@@ -82,15 +101,15 @@ int line(void)
         ICR1 = 20000;
         ICR5 = 40000;
         break;
-    case(0b0111):
+    case(0b0010):
         ICR1 = 20000;
         ICR5 = 30000;
         break;
     case(0b0110):
-        ICR1 = 18000;
-        ICR5 = 18000;
+        ICR1 = 20000;
+        ICR5 = 20000;
         break;
-    case(0b1110):
+    case(0b0100):
         ICR1 = 30000;
         ICR5 = 20000;
         break;
@@ -107,3 +126,59 @@ int line(void)
         ICR1 = ICR5 = 63530;
     }
 }
+
+
+int getPulse(void)
+{
+    int knop_ingedrukt = 0;
+    int tijdecho = 0;
+
+    PORTB |= (1 << trig);
+    _delay_us(10);
+    PORTB &= ~(1 << trig);
+
+   while(tijdecho < timeout)
+    {
+       if ((PINB & (1 << echo)) == 1)
+        {
+            if (knop_ingedrukt == 0) // knop is niet al eerder ingedrukt
+            {
+                knop_ingedrukt = 1;
+            }
+        }
+        if (knop_ingedrukt != 0) // knop is zojuist losgelaten
+        {
+            tijdecho ++;
+        }
+        if ((PINB & (1 << echo)) == 0)
+        {
+            if (knop_ingedrukt != 0) // knop is zojuist losgelaten
+            {
+                knop_ingedrukt = 0;
+                return tijdecho;
+            }
+        }
+    }
+
+   return timeout;
+
+}
+
+int ultrasoon(void)
+{
+    int tijd = timeout;
+    tijd = getPulse();
+    int Cm = tijd / 58;
+
+    if(Cm < 10)
+    {
+    PORTB |= (1 << 3);                 // zet driver rechts uit
+    PORTL |= (1 << 1);                 // zet driver links uit
+    }
+    else
+    {
+    PORTB &= ~(1 << 3);                 // zet driver rechts aan
+    PORTL &= ~(1 << 1);                 // zet driver links aan;
+    }
+}
+
