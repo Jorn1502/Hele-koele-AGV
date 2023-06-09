@@ -74,56 +74,110 @@ int line(void)
 
     int sensoren = 0;
 
+    PORTB &= ~(1 << 3);                 // zet driver rechts aan
+    PORTL &= ~(1 << 1);                 // zet driver links aan;
 
+
+    if(PINC & (1 << 0))
+    {
+        sensoren += 0b00000001;
+    }
+    if(PINC & (1 << 2))
+    {
+        sensoren += 0b00000010;
+    }
     if(PINC & (1 << 4))
     {
-        sensoren += 0b0001;
+        sensoren += 0b00000100;
     }
     if(PINC & (1 << 6))
     {
-        sensoren += 0b0010;
+        sensoren += 0b00001000;
     }
     if(PINA & (1 << 7))
     {
-        sensoren += 0b0100;
+        sensoren += 0b00010000;
     }
     if(PINA & (1 << 5))
     {
-        sensoren += 0b1000;
+        sensoren += 0b00100000;
     }
+        if(PINA & (1 << 3))
+    {
+        sensoren += 0b01000000;
+    }
+    if(PINA & (1 << 1))
+    {
+        sensoren += 0b10000000;
+    }
+
     switch(sensoren)
     {
-    case(0b0001):
+    case(0b00000001):
         ICR1 = 20000;
-        ICR5 = 60000;
+        PORTL |= (1 << 1);
         break;
-    case(0b0011):
+    case(0b00000011):
+        ICR1 = 20000;
+        ICR5 = 63530;
+        break;
+    case(0b00000010):
+        ICR1 = 20000;
+        ICR5 = 53000;
+        break;
+    case(0b00000110):
         ICR1 = 20000;
         ICR5 = 40000;
         break;
-    case(0b0010):
+    case(0b00000100):
         ICR1 = 20000;
         ICR5 = 30000;
         break;
-    case(0b0110):
+    case(0b00001100):
+        ICR1 = 20000;
+        ICR5 = 25000;
+        break;
+    case(0b00001000):
+        ICR1 = 20000;
+        ICR5 = 22000;
+        break;
+    case(0b00011000):
         ICR1 = 20000;
         ICR5 = 20000;
         break;
-    case(0b0100):
+    case(0b00010000):
+        ICR1 = 22000;
+        ICR5 = 20000;
+        break;
+    case(0b00110000):
+        ICR1 = 25000;
+        ICR5 = 20000;
+        break;
+    case(0b00100000):
         ICR1 = 30000;
         ICR5 = 20000;
         break;
-    case(0b1100):
+    case(0b01100000):
         ICR1 = 40000;
         ICR5 = 20000;
         break;
-    case(0b1000):
-        ICR1 = 60000;
+    case(0b01000000):
+        ICR1 = 53000;
+        ICR5 = 20000;
+        break;
+    case(0b11000000):
+        ICR1 = 63530;
+        ICR5 = 20000;
+        break;
+    case(0b10000000):
+        PORTB |= (1 << 3);
         ICR5 = 20000;
         break;
 
     default:
-        ICR1 = ICR5 = 63530;
+ //       ICR1 = ICR5 = 63530;                  //default langzaam rijden
+        PORTB |= (1 << 3);                      // zet driver rechts uit
+        PORTL |= (1 << 1);                      // zet driver links uit
     }
 }
 
