@@ -1,34 +1,47 @@
 /*
+8 000 000 / 10 = 800 000                    // Timer is 8 MHz ik wil 10 Hz hebben
+800 000 / 32 = 25 000                       // prescaler is 32
+65 35 - 25 000 = 40 535                     // startwaarde timer om de gewenste tijd te krigen
  */
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-#define stepR 3                              // OC5C PL3 pin 46
-#define stepL 5                              // OC1A PB5 pin 11
-#define stop 0                               // PE0 pin 0           eneble pin steppers high
+#define stepR 3                             // OC5C PL3 pin 46
+#define stepL 5                             // OC1A PB5 pin 11
+#define stop 0                              // PE0 pin 0           eneble pin steppers high
 
 
 #define trig PB2
 #define echo PB0
 
-int basissnelheid = 20000;                   // basissnelheid
-int speed;                                   // past het prog aan
+#define TCNT2_INIT 20535                    // startwaarde timer
+
+int basissnelheid = 20000;                  // basissnelheid
+int speed;                                  // past het prog aan
 
 int timeout = 1800;
 
 int main(void)
 {
     _delay_ms(2000);
-    setupSteppers();                         // steppers initialiseren
+    setupSteppers();                        // steppers initialiseren
     setupUltraPins();
     speed = basissnelheid;
 
     while(1)
     {
         line();
-        ultrasoon();
+
+        if(TIFR2 & (1 << TOV2))
+        {
+            TCNT2 = TCNT2_INIT;
+            TIFR2 = (1 << TOV2);
+
+            ultrasoon();
+        }
+
     }
 }
 
@@ -60,6 +73,7 @@ int setupSteppers(void)
     DDRC &= ~(1 << 0) | ~(1 << 2) | ~(1 << 4) | ~(1 << 6);  // ingang sensor
     DDRA &= ~(1 << 7) | ~(1 << 5) | ~(1 << 3) | ~(1 << 1);  // same
 }
+
 int setupUltraPins(void)
 {
     DDRB |= (1 << trig);                // output voor trigger
@@ -67,6 +81,11 @@ int setupUltraPins(void)
 
     DDRL |= (1 << 0);                   // PS pin ultrasoon
     PORTL |= (1 << 0);                  // 5V supply
+
+    TCCR2A = 0;
+    TCCR2B = ~(1 << CS22) | (1 << CS21) | (1 << CS20);
+
+    TCNT2 = TCNT2_INIT;
 }
 
 int line(void)
@@ -74,8 +93,8 @@ int line(void)
 
     int sensoren = 0;
 
-    PORTB &= ~(1 << 3);                 // zet driver rechts aan
-    PORTL &= ~(1 << 1);                 // zet driver links aan;
+//    PORTB &= ~(1 << 3);                 // zet driver rechts aan
+//    PORTL &= ~(1 << 1);                 // zet driver links aan;
 
 
     if(PINC & (1 << 0))
@@ -121,7 +140,7 @@ int line(void)
         ICR1 = 20000;
         ICR5 = 63530;
         break;
-    case(0b00000010):
+    case(0b00000111):
         ICR1 = 20000;
         ICR5 = 53000;
         break;
@@ -129,7 +148,7 @@ int line(void)
         ICR1 = 20000;
         ICR5 = 40000;
         break;
-    case(0b00000100):
+    case(0b00001110):
         ICR1 = 20000;
         ICR5 = 30000;
         break;
@@ -137,7 +156,7 @@ int line(void)
         ICR1 = 20000;
         ICR5 = 25000;
         break;
-    case(0b00001000):
+    case(0b00011100):
         ICR1 = 20000;
         ICR5 = 22000;
         break;
@@ -145,7 +164,7 @@ int line(void)
         ICR1 = 20000;
         ICR5 = 20000;
         break;
-    case(0b00010000):
+    case(0b00111000):
         ICR1 = 22000;
         ICR5 = 20000;
         break;
@@ -153,7 +172,7 @@ int line(void)
         ICR1 = 25000;
         ICR5 = 20000;
         break;
-    case(0b00100000):
+    case(0b01110000):
         ICR1 = 30000;
         ICR5 = 20000;
         break;
@@ -161,7 +180,7 @@ int line(void)
         ICR1 = 40000;
         ICR5 = 20000;
         break;
-    case(0b01000000):
+    case(0b11100000):
         ICR1 = 53000;
         ICR5 = 20000;
         break;
@@ -175,9 +194,7 @@ int line(void)
         break;
 
     default:
- //       ICR1 = ICR5 = 63530;                  //default langzaam rijden
-        PORTB |= (1 << 3);                      // zet driver rechts uit
-        PORTL |= (1 << 1);                      // zet driver links uit
+        ICR1 = ICR5 = 63530;                  //default langzaam rijden
     }
 }
 
@@ -228,6 +245,9 @@ int ultrasoon(void)
     {
     PORTB |= (1 << 3);                 // zet driver rechts uit
     PORTL |= (1 << 1);                 // zet driver links uit
+
+            DDRB |= (1 << 7);
+            PORTB &= ~(1 << 7);
     }
     else
     {

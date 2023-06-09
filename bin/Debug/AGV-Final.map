@@ -165,7 +165,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xfe0
+.text           0x0000000000000000     0x1008
  *(.vectors)
  .vectors       0x0000000000000000       0xe4 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
                 0x0000000000000000                __vector_default
@@ -175,39 +175,39 @@ END GROUP
                 0x00000000000000e4                . = ALIGN (0x2)
                 0x00000000000000e4                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000000000000e4       0x38 linker stubs
+ .trampolines   0x00000000000000e4       0x2c linker stubs
  *(.trampolines*)
-                0x000000000000011c                __trampolines_end = .
+                0x0000000000000110                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem.*)
-                0x000000000000011c                . = ALIGN (0x2)
+                0x0000000000000110                . = ALIGN (0x2)
  *(.lowtext)
  *(.lowtext*)
-                0x000000000000011c                __ctors_start = .
+                0x0000000000000110                __ctors_start = .
  *(.ctors)
-                0x000000000000011c                __ctors_end = .
-                0x000000000000011c                __dtors_start = .
+                0x0000000000000110                __ctors_end = .
+                0x0000000000000110                __dtors_start = .
  *(.dtors)
-                0x000000000000011c                __dtors_end = .
+                0x0000000000000110                __dtors_end = .
  SORT_BY_NAME(*)(.ctors)
  SORT_BY_NAME(*)(.dtors)
  *(.init0)
- .init0         0x000000000000011c        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
-                0x000000000000011c                __init
+ .init0         0x0000000000000110        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x0000000000000110                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000000000011c       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .init2         0x0000000000000110       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000000000012c       0x1a d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
-                0x000000000000012c                __do_copy_data
- .init4         0x0000000000000146       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
-                0x0000000000000146                __do_clear_bss
+ .init4         0x0000000000000120       0x1a d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000120                __do_copy_data
+ .init4         0x000000000000013a       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x000000000000013a                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -218,239 +218,239 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000000000000156        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
+ .init9         0x000000000000014a        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
  *(.init9)
  *(.text)
- .text          0x000000000000015e        0x4 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
-                0x000000000000015e                __vector_38
-                0x000000000000015e                __vector_22
-                0x000000000000015e                __vector_28
-                0x000000000000015e                __vector_1
-                0x000000000000015e                __vector_32
-                0x000000000000015e                __vector_34
-                0x000000000000015e                __vector_24
-                0x000000000000015e                __vector_12
-                0x000000000000015e                __vector_55
-                0x000000000000015e                __vector_46
-                0x000000000000015e                __bad_interrupt
-                0x000000000000015e                __vector_6
-                0x000000000000015e                __vector_31
-                0x000000000000015e                __vector_35
-                0x000000000000015e                __vector_39
-                0x000000000000015e                __vector_3
-                0x000000000000015e                __vector_23
-                0x000000000000015e                __vector_30
-                0x000000000000015e                __vector_45
-                0x000000000000015e                __vector_25
-                0x000000000000015e                __vector_11
-                0x000000000000015e                __vector_54
-                0x000000000000015e                __vector_13
-                0x000000000000015e                __vector_17
-                0x000000000000015e                __vector_19
-                0x000000000000015e                __vector_56
-                0x000000000000015e                __vector_7
-                0x000000000000015e                __vector_49
-                0x000000000000015e                __vector_41
-                0x000000000000015e                __vector_43
-                0x000000000000015e                __vector_27
-                0x000000000000015e                __vector_5
-                0x000000000000015e                __vector_33
-                0x000000000000015e                __vector_47
-                0x000000000000015e                __vector_52
-                0x000000000000015e                __vector_37
-                0x000000000000015e                __vector_4
-                0x000000000000015e                __vector_44
-                0x000000000000015e                __vector_51
-                0x000000000000015e                __vector_9
-                0x000000000000015e                __vector_2
-                0x000000000000015e                __vector_21
-                0x000000000000015e                __vector_15
-                0x000000000000015e                __vector_36
-                0x000000000000015e                __vector_29
-                0x000000000000015e                __vector_40
-                0x000000000000015e                __vector_8
-                0x000000000000015e                __vector_26
-                0x000000000000015e                __vector_48
-                0x000000000000015e                __vector_14
-                0x000000000000015e                __vector_53
-                0x000000000000015e                __vector_10
-                0x000000000000015e                __vector_50
-                0x000000000000015e                __vector_16
-                0x000000000000015e                __vector_18
-                0x000000000000015e                __vector_20
-                0x000000000000015e                __vector_42
- .text          0x0000000000000162        0x0 obj\Debug\fuse.o
- .text          0x0000000000000162      0xa40 obj\Debug\main.o
-                0x0000000000000162                main
-                0x00000000000002b8                setupSteppers
-                0x00000000000003ea                setupUltraPins
-                0x0000000000000442                line
-                0x00000000000007ca                getPulse
-                0x0000000000000b08                ultrasoon
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
- .text          0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x0000000000000ba2                . = ALIGN (0x2)
+ .text          0x0000000000000152        0x4 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
+                0x0000000000000152                __vector_38
+                0x0000000000000152                __vector_22
+                0x0000000000000152                __vector_28
+                0x0000000000000152                __vector_1
+                0x0000000000000152                __vector_32
+                0x0000000000000152                __vector_34
+                0x0000000000000152                __vector_24
+                0x0000000000000152                __vector_12
+                0x0000000000000152                __vector_55
+                0x0000000000000152                __vector_46
+                0x0000000000000152                __bad_interrupt
+                0x0000000000000152                __vector_6
+                0x0000000000000152                __vector_31
+                0x0000000000000152                __vector_35
+                0x0000000000000152                __vector_39
+                0x0000000000000152                __vector_3
+                0x0000000000000152                __vector_23
+                0x0000000000000152                __vector_30
+                0x0000000000000152                __vector_45
+                0x0000000000000152                __vector_25
+                0x0000000000000152                __vector_11
+                0x0000000000000152                __vector_54
+                0x0000000000000152                __vector_13
+                0x0000000000000152                __vector_17
+                0x0000000000000152                __vector_19
+                0x0000000000000152                __vector_56
+                0x0000000000000152                __vector_7
+                0x0000000000000152                __vector_49
+                0x0000000000000152                __vector_41
+                0x0000000000000152                __vector_43
+                0x0000000000000152                __vector_27
+                0x0000000000000152                __vector_5
+                0x0000000000000152                __vector_33
+                0x0000000000000152                __vector_47
+                0x0000000000000152                __vector_52
+                0x0000000000000152                __vector_37
+                0x0000000000000152                __vector_4
+                0x0000000000000152                __vector_44
+                0x0000000000000152                __vector_51
+                0x0000000000000152                __vector_9
+                0x0000000000000152                __vector_2
+                0x0000000000000152                __vector_21
+                0x0000000000000152                __vector_15
+                0x0000000000000152                __vector_36
+                0x0000000000000152                __vector_29
+                0x0000000000000152                __vector_40
+                0x0000000000000152                __vector_8
+                0x0000000000000152                __vector_26
+                0x0000000000000152                __vector_48
+                0x0000000000000152                __vector_14
+                0x0000000000000152                __vector_53
+                0x0000000000000152                __vector_10
+                0x0000000000000152                __vector_50
+                0x0000000000000152                __vector_16
+                0x0000000000000152                __vector_18
+                0x0000000000000152                __vector_20
+                0x0000000000000152                __vector_42
+ .text          0x0000000000000156        0x0 obj\Debug\fuse.o
+ .text          0x0000000000000156      0xac4 obj\Debug\main.o
+                0x0000000000000156                main
+                0x00000000000002d2                setupSteppers
+                0x0000000000000404                setupUltraPins
+                0x0000000000000478                line
+                0x000000000000081e                getPulse
+                0x0000000000000b5c                ultrasoon
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+ .text          0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x0000000000000c1a                . = ALIGN (0x2)
  *(.text.*)
  .text.libgcc.mul
-                0x0000000000000ba2        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c1a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.div
-                0x0000000000000ba2       0x28 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
-                0x0000000000000ba2                _div
-                0x0000000000000ba2                __divmodhi4
- .text.libgcc   0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c1a       0x28 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c1a                _div
+                0x0000000000000c1a                __divmodhi4
+ .text.libgcc   0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.prologue
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.builtins
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.fmul
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.fixed
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
  .text.libgcc.mul
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.div
-                0x0000000000000bca        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
- .text.libgcc   0x0000000000000bca       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
-                0x0000000000000bca                __tablejump2__
+                0x0000000000000c42        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+ .text.libgcc   0x0000000000000c42       0x10 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c42                __tablejump2__
  .text.libgcc.prologue
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.builtins
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.fmul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.fixed
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
  .text.libgcc.mul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x0000000000000bda        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c52        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.libgcc.div
-                0x0000000000000bda       0x28 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
-                0x0000000000000bda                __udivmodhi4
- .text.libgcc   0x0000000000000c02        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c52       0x28 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c52                __udivmodhi4
+ .text.libgcc   0x0000000000000c7a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.libgcc.prologue
-                0x0000000000000c02        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c7a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.libgcc.builtins
-                0x0000000000000c02        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c7a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.libgcc.fmul
-                0x0000000000000c02        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c7a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.libgcc.fixed
-                0x0000000000000c02        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000000000000c7a        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
  .text.avr-libc.fplib
-                0x0000000000000c02        0xa d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
-                0x0000000000000c02                __nesf2
-                0x0000000000000c02                __eqsf2
-                0x0000000000000c02                __cmpsf2
-                0x0000000000000c02                __ltsf2
-                0x0000000000000c02                __lesf2
+                0x0000000000000c7a        0xa d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+                0x0000000000000c7a                __nesf2
+                0x0000000000000c7a                __eqsf2
+                0x0000000000000c7a                __cmpsf2
+                0x0000000000000c7a                __ltsf2
+                0x0000000000000c7a                __lesf2
  .text.avr-libc.fplib
-                0x0000000000000c0c        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
-                0x0000000000000c0c                __divsf3
+                0x0000000000000c84        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
+                0x0000000000000c84                __divsf3
  .text.avr-libc.fplib
-                0x0000000000000c14       0xdc d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
-                0x0000000000000c34                __divsf3x
-                0x0000000000000c3a                __divsf3_pse
+                0x0000000000000c8c       0xdc d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+                0x0000000000000cac                __divsf3x
+                0x0000000000000cb2                __divsf3_pse
  .text.avr-libc.fplib
-                0x0000000000000cf0       0x5e d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x0000000000000cf0                __fixunssfsi
+                0x0000000000000d68       0x5e d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x0000000000000d68                __fixunssfsi
  .text.avr-libc.fplib
-                0x0000000000000d4e       0x48 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
-                0x0000000000000d4e                __fp_cmp
+                0x0000000000000dc6       0x48 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                0x0000000000000dc6                __fp_cmp
  .text.avr-libc.fplib
-                0x0000000000000d96        0xc d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x0000000000000d96                __fp_inf
+                0x0000000000000e0e        0xc d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x0000000000000e0e                __fp_inf
  .text.avr-libc.fplib
-                0x0000000000000da2        0x6 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x0000000000000da2                __fp_nan
+                0x0000000000000e1a        0x6 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x0000000000000e1a                __fp_nan
  .text.avr-libc.fplib
-                0x0000000000000da8        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x0000000000000da8                __fp_pscA
+                0x0000000000000e20        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x0000000000000e20                __fp_pscA
  .text.avr-libc.fplib
-                0x0000000000000db6        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x0000000000000db6                __fp_pscB
+                0x0000000000000e2e        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x0000000000000e2e                __fp_pscB
  .text.avr-libc.fplib
-                0x0000000000000dc4       0x22 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x0000000000000dc4                __fp_round
+                0x0000000000000e3c       0x22 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x0000000000000e3c                __fp_round
  .text.avr-libc.fplib
-                0x0000000000000de6       0x44 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x0000000000000de6                __fp_split3
-                0x0000000000000df6                __fp_splitA
+                0x0000000000000e5e       0x44 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x0000000000000e5e                __fp_split3
+                0x0000000000000e6e                __fp_splitA
  .text.avr-libc.fplib
-                0x0000000000000e2a        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x0000000000000e2a                __fp_zero
-                0x0000000000000e2c                __fp_szero
+                0x0000000000000ea2        0xe d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x0000000000000ea2                __fp_zero
+                0x0000000000000ea4                __fp_szero
  .text.avr-libc.fplib
-                0x0000000000000e38        0xa d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
-                0x0000000000000e38                __gesf2
-                0x0000000000000e38                __gtsf2
+                0x0000000000000eb0        0xa d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
+                0x0000000000000eb0                __gesf2
+                0x0000000000000eb0                __gtsf2
  .text.avr-libc.fplib
-                0x0000000000000e42        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x0000000000000e42                __mulsf3
+                0x0000000000000eba        0x8 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x0000000000000eba                __mulsf3
  .text.avr-libc.fplib
-                0x0000000000000e4a       0xd2 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x0000000000000e68                __mulsf3x
-                0x0000000000000e6e                __mulsf3_pse
-                0x0000000000000f1c                . = ALIGN (0x2)
+                0x0000000000000ec2       0xd2 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x0000000000000ee0                __mulsf3x
+                0x0000000000000ee6                __mulsf3_pse
+                0x0000000000000f94                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000f1c        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
-                0x0000000000000f1c                _exit
-                0x0000000000000f1c                exit
+ .fini9         0x0000000000000f94        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+                0x0000000000000f94                _exit
+                0x0000000000000f94                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -469,19 +469,19 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000f1c        0x4 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x0000000000000f94        0x4 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
  *(.hightext)
  *(.hightext*)
  *(.progmemx.*)
-                0x0000000000000f20                . = ALIGN (0x2)
+                0x0000000000000f98                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  .jumptables.gcc.line
-                0x0000000000000f20       0xc0 obj\Debug\main.o
-                0x0000000000000fe0                _etext = .
+                0x0000000000000f98       0x70 obj\Debug\main.o
+                0x0000000000001008                _etext = .
 
-.data           0x0000000000800200        0x4 load address 0x0000000000000fe0
+.data           0x0000000000800200        0x4 load address 0x0000000000001008
                 0x0000000000800200                PROVIDE (__data_start = .)
  *(.data)
  .data          0x0000000000800200        0x0 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
@@ -550,8 +550,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x0000000000800206                PROVIDE (__bss_end = .)
-                0x0000000000000fe0                __data_load_start = LOADADDR (.data)
-                0x0000000000000fe4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000001008                __data_load_start = LOADADDR (.data)
+                0x000000000000100c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800206        0x0
                 [!provide]                        PROVIDE (__noinit_start = .)
@@ -644,41 +644,41 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x10e1
+.debug_info     0x0000000000000000     0x10eb
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0xbbc d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
  .debug_info    0x0000000000000bbc       0xa2 obj\Debug\fuse.o
- .debug_info    0x0000000000000c5e      0x3ab obj\Debug\main.o
- .debug_info    0x0000000000001009       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
- .debug_info    0x000000000000102d       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
- .debug_info    0x0000000000001051       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
- .debug_info    0x0000000000001075       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
- .debug_info    0x0000000000001099       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
- .debug_info    0x00000000000010bd       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+ .debug_info    0x0000000000000c5e      0x3b5 obj\Debug\main.o
+ .debug_info    0x0000000000001013       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+ .debug_info    0x0000000000001037       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .debug_info    0x000000000000105b       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+ .debug_info    0x000000000000107f       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+ .debug_info    0x00000000000010a3       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+ .debug_info    0x00000000000010c7       0x24 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
 
-.debug_abbrev   0x0000000000000000      0xdd7
+.debug_abbrev   0x0000000000000000      0xde0
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0xb1a d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
  .debug_abbrev  0x0000000000000b1a       0x7b obj\Debug\fuse.o
- .debug_abbrev  0x0000000000000b95      0x1ca obj\Debug\main.o
- .debug_abbrev  0x0000000000000d5f       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
- .debug_abbrev  0x0000000000000d73       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
- .debug_abbrev  0x0000000000000d87       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
- .debug_abbrev  0x0000000000000d9b       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
- .debug_abbrev  0x0000000000000daf       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
- .debug_abbrev  0x0000000000000dc3       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x0000000000000b95      0x1d3 obj\Debug\main.o
+ .debug_abbrev  0x0000000000000d68       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x0000000000000d7c       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .debug_abbrev  0x0000000000000d90       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+ .debug_abbrev  0x0000000000000da4       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+ .debug_abbrev  0x0000000000000db8       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x0000000000000dcc       0x14 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
 
-.debug_line     0x0000000000000000      0xc46
+.debug_line     0x0000000000000000      0xca2
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1d d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/../../../../avr/lib/avr6/crtatmega2560.o
  .debug_line    0x000000000000001d       0x3f obj\Debug\fuse.o
- .debug_line    0x000000000000005c      0x8a8 obj\Debug\main.o
- .debug_line    0x0000000000000904       0xb7 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
- .debug_line    0x00000000000009bb       0x51 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
- .debug_line    0x0000000000000a0c       0x75 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
- .debug_line    0x0000000000000a81       0x93 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
- .debug_line    0x0000000000000b14       0x75 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
- .debug_line    0x0000000000000b89       0xbd d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
+ .debug_line    0x000000000000005c      0x904 obj\Debug\main.o
+ .debug_line    0x0000000000000960       0xb7 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_divmodhi4.o)
+ .debug_line    0x0000000000000a17       0x51 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_exit.o)
+ .debug_line    0x0000000000000a68       0x75 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_tablejump2.o)
+ .debug_line    0x0000000000000add       0x93 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_copy_data.o)
+ .debug_line    0x0000000000000b70       0x75 d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_clear_bss.o)
+ .debug_line    0x0000000000000be5       0xbd d:/00 school hhs/software/avr-gcc/avr-gcc-12.0.1/bin/../lib/gcc/avr/12.1.0/avr6\libgcc.a(_udivmodhi4.o)
 
 .debug_frame    0x0000000000000000       0xd4
  *(.debug_frame)
