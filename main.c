@@ -38,7 +38,7 @@ int main(void)
             TCNT2 = TCNT2_INIT;
             TIFR2 = (1 << TOV2);
 
-            // ultrasoon();
+            ultrasoon();
         }
     }
 }
@@ -50,7 +50,7 @@ int setupSteppers(void)
     DDRE |= (1 << stop);
 
     TCCR1A = (1 << COM1A1) | (0 << COM1A0) | (1 << WGM11) | (0 << WGM10);
-    TCCR1B = (1 << WGM13) | (1 << WGM12) | (0 << CS12) | (0 << CS11) | (1 << CS10);
+    TCCR1B = (1 << WGM13) | (1 << WGM12) | (0 << CS12) | (0 << CS11) | (1 << CS10);  //cs*1 aan en cs*0 uit geeft prescaler 8 ipv 1
 
     TCCR5A = (1 << COM5A1) | (0 << COM5A0) | (1 << WGM51) | (0 << WGM50);
     TCCR5B = (1 << WGM53) | (1 << WGM52) | (0 << CS52) | (0 << CS51) | (1 << CS50);
@@ -98,8 +98,8 @@ int line(void)
     int centerPin1 = PINC & (1 << 6);
     int centerPin2 = PINA & (1 << 7);
 
-    int rechterPin3 = PINC & (1 << 4);
-    int linkerPin1 = PINA & (1 << 5);
+    // int rechterPin3 = PINC & (1 << 4);
+    // int linkerPin1 = PINA & (1 << 5);
 
     int rechterPin1 = PINC & (1 << 0);
     int rechterPin2 = PINC & (1 << 2);
@@ -115,46 +115,47 @@ int line(void)
     {
         sensoren = Links;
     }
-    if ((centerPin1) && (centerPin2))
+    if ((centerPin1) || (centerPin2))
     {
         sensoren = Voor;
     }
     
-
     switch (sensoren)
     {
     case (3):
         // vooruit
-        ICR1 = 20000;
-        ICR5 = 20000;
+        ICR1 = 25000;
+        ICR5 = 25000;
         break;
     case (1):
         // Rechtssaf
-        ICR1 = 53530;
-        ICR5 = 20000;
+        ICR1 = 71530;
+        ICR5 = 25000;
         break;
     case (2):
-        ICR1 = 20000;
-        ICR5 = 53530;
+        // linksaf
+        ICR1 = 25000;
+        ICR5 = 71530;
         break;
- 
 
     default:
-        ICR1 = 53530;
-        ICR5 = 53530; // default langzaam rijden
+        ICR1 = 65530;
+        ICR5 = 65530; // default langzaam rijden
     }
+    _delay_ms(50);
 }
 
 int getPulse(void)
 {
     int knop_ingedrukt = 0;
     int tijdecho = 0;
+    int stuk = 0;
 
     PORTB |= (1 << trig);
     _delay_us(10);
     PORTB &= ~(1 << trig);
 
-    while (tijdecho < timeout)
+    while ((tijdecho || stuk) < timeout)
     {
         if ((PINB & (1 << echo)) == 1)
         {
@@ -175,6 +176,7 @@ int getPulse(void)
                 return tijdecho;
             }
         }
+        stuk++;
     }
 
     return timeout;
@@ -194,7 +196,7 @@ int ultrasoon(void)
         DDRB |= (1 << 7);
         PORTB &= ~(1 << 7);
     }
-    else
+    if (Cm > 13)
     {
         PORTB &= ~(1 << 3); // zet driver rechts aan
         PORTL &= ~(1 << 1); // zet driver links aan;
