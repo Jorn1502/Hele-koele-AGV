@@ -22,11 +22,35 @@ int speed;                 // past het prog aan
 
 int timeout = 1800;
 
+ISR(INT0_vect)
+{
+    _delay_ms(20);
+    DDRB |= (1 << 7);
+    PORTB &= ~(1 << 7);
+}
+
+ISR(INT1_vect)
+{
+    _delay_ms(20);
+    PORTB |= (1 << 7);
+}
+ISR(INT2_vect)
+{
+    while ((PORTB & (1 << 3)) != 0)
+    {
+        _delay_ms(50);
+        DDRB |= (1 << 7);
+        PORTB ^= (1 << 7);
+    }
+}
+
 int main(void)
 {
+    noodBump();
     _delay_ms(2000);
     setupSteppers(); // steppers initialiseren
     setupUltraPins();
+    setupIRSensor(); // ir sensor initialiseren
     speed = basissnelheid;
 
     while (1)
@@ -43,6 +67,16 @@ int main(void)
     }
 }
 
+int noodBump(void)
+{
+    DDRD &= ~(1 << 2);
+    DDRD |= (1 << 3);
+    PORTD |= (1 << 3);
+
+    EIMSK |= (1 << INT2);
+    EICRA |= (1 << ISC21) | (1 << ISC20);
+}
+
 int setupSteppers(void)
 {
     DDRL |= (1 << stepR); // PWM aan (timer 1)
@@ -50,7 +84,7 @@ int setupSteppers(void)
     DDRE |= (1 << stop);
 
     TCCR1A = (1 << COM1A1) | (0 << COM1A0) | (1 << WGM11) | (0 << WGM10);
-    TCCR1B = (1 << WGM13) | (1 << WGM12) | (0 << CS12) | (0 << CS11) | (1 << CS10);  //cs*1 aan en cs*0 uit geeft prescaler 8 ipv 1
+    TCCR1B = (1 << WGM13) | (1 << WGM12) | (0 << CS12) | (0 << CS11) | (1 << CS10); // cs*1 aan en cs*0 uit geeft prescaler 8 ipv 1
 
     TCCR5A = (1 << COM5A1) | (0 << COM5A0) | (1 << WGM51) | (0 << WGM50);
     TCCR5B = (1 << WGM53) | (1 << WGM52) | (0 << CS52) | (0 << CS51) | (1 << CS50);
@@ -83,6 +117,27 @@ int setupUltraPins(void)
     TCCR2B = ~(1 << CS22) | (1 << CS21) | (1 << CS20);
 
     TCNT2 = TCNT2_INIT;
+}
+
+int setupIRSensor(void)
+{
+    sei();
+    EIMSK |= (1 << INT0);
+    EICRA |= (1 << ISC01) | (0 << ISC00);
+    EIMSK |= (1 << INT1);
+    EICRA |= (1 << ISC11) | (0 << ISC10);
+
+    // links
+    DDRD &= ~(1 << 0);           // input vanaf ir links
+    DDRA |= (1 << 6) | (1 << 4); // PS voor ir links
+    PORTA &= ~(1 << 6);          // GND voor ir links
+    PORTA |= (1 << 4);           // 5V voor ir links
+
+    // rechts
+    DDRD &= ~(1 << 1);           // input vanaf ir rechts
+    DDRA |= (1 << 0) | (1 << 2); // PS voor ir rechts
+    PORTA &= ~(1 << 2);          // GND voor ir rechts
+    PORTA |= (1 << 0);           // 5V voor ir rechts
 }
 
 int line(void)
@@ -119,7 +174,7 @@ int line(void)
     {
         sensoren = Voor;
     }
-    
+
     switch (sensoren)
     {
     case (3):
