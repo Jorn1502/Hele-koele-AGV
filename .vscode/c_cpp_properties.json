@@ -12,6 +12,24 @@
             ],
             "configurationProvider": "ms-vscode.makefile-tools",
             "compilerPath": "C:\\Program Files (x86)\\avr-gcc-12.0.1\\bin\\avr-gcc.exe"
+        },
+        {
+            "name": "AVR",
+            "intelliSenseMode": "${default}",
+            "compilerPath": "C:\\\\Program Files (x86)\\\\avr-gcc-12.0.1\\\\bin\\\\avr-gcc.exe",
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "includePath": [],
+            "compilerArgs": [
+                "-g",
+                "-Os",
+                "-Wall",
+                "-Wextra",
+                "-fpermissive",
+                "-fno-exceptions",
+                "-fno-threadsafe-statics",
+                "-pipe"
+            ]
         }
     ],
     "version": 4

@@ -24,15 +24,14 @@ int timeout = 1800;
 
 ISR(INT0_vect)
 {
-    _delay_ms(20);
-    DDRB |= (1 << 7);
-    PORTB &= ~(1 << 7);
+    _delay_ms(40);
+
 }
 
 ISR(INT1_vect)
 {
-    _delay_ms(20);
-    PORTB |= (1 << 7);
+    _delay_ms(40);
+
 }
 ISR(INT2_vect)
 {
