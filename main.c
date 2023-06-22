@@ -4,6 +4,8 @@
 65 35 - 25 000 = 40 535                     // startwaarde timer om de gewenste tijd te krigen
  */
 
+// git assesment Jorn van Dijk
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
