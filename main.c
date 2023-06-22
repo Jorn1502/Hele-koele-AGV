@@ -24,15 +24,22 @@ int timeout = 1800;
 
 ISR(INT0_vect)
 {
-    _delay_ms(40);
-
+    _delay_ms(20);
+    DDRB |= (1 << 7);
+    PORTB |= (1 << 3); // eneble pin rechts
+    PORTL |= (1 << 1);
+    _delay_ms(2000);
 }
 
 ISR(INT1_vect)
 {
-    _delay_ms(40);
-
+    _delay_ms(20);
+    DDRB |= (1 << 7);
+    PORTB |= (1 << 3); // eneble pin rechts
+    PORTL |= (1 << 1);
+    _delay_ms(2000);
 }
+
 ISR(INT2_vect)
 {
     while ((PORTB & (1 << 3)) != 0)
@@ -45,11 +52,12 @@ ISR(INT2_vect)
 
 int main(void)
 {
-    noodBump();
-    _delay_ms(2000);
+    // noodBump();
     setupSteppers(); // steppers initialiseren
     setupUltraPins();
     setupIRSensor(); // ir sensor initialiseren
+    _delay_ms(1000);
+
     speed = basissnelheid;
 
     while (1)

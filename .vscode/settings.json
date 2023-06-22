@@ -1,6 +1,0 @@
-{
-    "AVR.reporter.arguments": [
-        "-A"
-    ],
-    "AVR.source.compiler": "C:\\\\Program Files (x86)\\\\avr-gcc-12.0.1\\\\bin\\\\avr-gcc.exe"
-}

@@ -16,7 +16,7 @@
         {
             "name": "AVR",
             "intelliSenseMode": "${default}",
-            "compilerPath": "C:\\\\Program Files (x86)\\\\avr-gcc-12.0.1\\\\bin\\\\avr-gcc.exe",
+            "compilerPath": "",
             "cStandard": "${default}",
             "cppStandard": "${default}",
             "includePath": [],
