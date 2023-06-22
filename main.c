@@ -4,7 +4,7 @@
 65 35 - 25 000 = 40 535                     // startwaarde timer om de gewenste tijd te krigen
  */
 
-// git assesment Jorn van Dijk
+// git assesment Jorn van Dijk en die van 22089802
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
